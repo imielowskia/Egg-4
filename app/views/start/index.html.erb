@@ -1,0 +1,18 @@
+<div class="jumbotron">
+<h1>Egzamin z programowania w języku Python</h1>
+<h2>IV rok infromatyki IIT/PWSTE 2021</h2>
+
+
+
+
+  <% if user_signed_in? %>
+    <h3> Zestaw pytań dla <%= @user.imie %> <%= @user.nazwisko %> wylosowany <%= @zestaw.first.created_at %> </h3>
+    <% i=1 %>
+    <% @zestaw.each do |z| %>
+      <h3>Pytanie.<%= i %></h3>
+      <%= z.question.tekst %>
+      <% i+=1 %>
+    <% end %>
+  <% end %>
+
+</div>

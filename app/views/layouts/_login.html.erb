@@ -1,0 +1,65 @@
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+
+
+  <div class="navbar-collapse collapse" id="collapsingNavbar">
+    <span class="nav-link">
+          <%= link_to 'Lista', import_lista_path, class: "btn btn-light btn-sm" %>
+        </span>
+
+    <% if user_signed_in?  %>
+
+      <% if current_user.indeks=="12345" %>
+
+         <span class="nav-link">
+          <%= link_to 'Lista', import_lista_path, class: "btn btn-light btn-sm" %>
+        </span>
+
+
+
+
+      <% else %>
+
+
+
+
+
+      <% end %>
+
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item active">
+
+        </li>
+
+        <li class="nav-item">
+          <font size="4"> Jesteś zalogowany jako:<%= current_user.imie %> <%= current_user.nazwisko %> </font>
+          <%= link_to 'Wyloguj', destroy_user_session_path, method: :delete, class: "btn btn-light btn-sm" %>
+
+        </li>
+      </ul>
+
+    <% else %>
+
+      <ul class="navbar-nav ml-auto">
+
+
+
+        <li class="nav-item">
+
+          <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <font size="4">
+              Login: <%= f.text_field :indeks %> Hasło: <%= f.password_field :password, autocomplete: "current-password" %>
+              <%= f.check_box :remember_me %> Zapamiętaj <%= f.submit 'Zaloguj', class: "btn btn-light" %>
+            </font>
+          <% end %>
+
+        </li>
+      </ul>
+
+    <% end %>
+
+
+  </div>
+</nav>
