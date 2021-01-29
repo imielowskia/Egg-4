@@ -1,13 +1,15 @@
 
 <div class="jumbotron">
-  <%= link_to "Pobierz PDF", start_path(@zestaw, format: :pdf), class: "btn btn-primary" %>
   <h1>Egzamin z programowania w języku Python</h1>
   <h2>IV rok infromatyki IIT/PWSTE 2021</h2>
 
 
 
 
+
+
   <% if user_signed_in? %>
+    <%= link_to "Pobierz PDF", start_path(@zestaw, format: :pdf), class: "btn btn-primary" %>
     <h4> Zestaw pytań dla <%= @user.imie %> <%= @user.nazwisko %> wylosowany <%= @zestaw.first.created_at.strftime("%d.%m.%Y o %H:%M") %> </h4>
     <% i=1 %>
     <% @zestaw.each do |z| %>
