@@ -17,7 +17,7 @@ class StartController < ApplicationController
         current_user.pobral = true
         current_user.save!
       end
-      @zestaw = Egzam.where(user_id: current_user.id).order(:gr)
+      @zestaw = Egzam.where(user_id: current_user.id).order(:question_id)
       @user = current_user
     end
   end

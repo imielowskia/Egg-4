@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :indeks,uniqueness: true
   has_many :egzams
   has_many :questions, through: :egzams
+  require 'csv'
 
   def self.import(file)
 

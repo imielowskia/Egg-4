@@ -2,7 +2,9 @@
 
 <h1>Questions</h1>
 
-<table>
+<% if current_user.indeks=="12345" %>
+
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Gr</th>
@@ -27,3 +29,7 @@
 <br>
 
 <%= link_to 'New Question', new_question_path %>
+
+<% else %>
+  <h2><font color="#dc143c"> Nie masz uprawnień</font> </h2>
+<% end %>

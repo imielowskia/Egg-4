@@ -6,10 +6,10 @@
 
 
   <% if user_signed_in? %>
-    <h3> Zestaw pytań dla <%= @user.imie %> <%= @user.nazwisko %> wylosowany <%= @zestaw.first.created_at %> </h3>
+    <h4> Zestaw pytań dla <%= @user.imie %> <%= @user.nazwisko %> wylosowany <%= @zestaw.first.created_at.strftime("%d.%m.%Y o %H:%M") %> </h4>
     <% i=1 %>
     <% @zestaw.each do |z| %>
-      <h3>Pytanie.<%= i %></h3>
+      <h5>Pytanie.<%= i %></h5>
       <%= z.question.tekst %>
       <% i+=1 %>
     <% end %>
