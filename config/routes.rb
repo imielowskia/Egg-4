@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :egzams
   resources :questions
+  resources :start
   devise_for :users
-  get 'start/index'
+
+
 
   get 'import/lista'
   post 'import/import'

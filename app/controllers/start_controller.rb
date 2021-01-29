@@ -1,4 +1,7 @@
 class StartController < ApplicationController
+  before_action :set_user, only: %w[ show ]
+
+
   def index
     if user_signed_in?
 
@@ -21,4 +24,32 @@ class StartController < ApplicationController
       @user = current_user
     end
   end
+
+
+  def show
+    @zestaw = Egzam.where(user_id: @user.id).order(:question_id)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Egzamin: #{current_user.imie} #{current_user.nazwisko}",
+        page_size: 'A4',
+        template: "start/show.html.erb",
+        layout: "pdf.html",
+        orientation: "Portrait",
+        lowquality: false,
+        zoom: 1,
+        dpi: 150,
+        encoding: 'UTF-8'
+      end
+
+
+    end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = current_user
+  end
+
 end

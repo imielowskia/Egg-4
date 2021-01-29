@@ -54,3 +54,7 @@ group :production do
   gem 'pg'
 end
 
+
+#do pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

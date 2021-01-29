@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="515f7369-e060-442e-895e-3c2d198921c4" name="przedmioty.iit.pwste.edu.pl" url="http://przedmioty.iit.pwste.edu.pl">
+        <fileTransfer host="przedmioty.iit.pwste.edu.pl" port="22" rootFolder="/home/egg/egg" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
