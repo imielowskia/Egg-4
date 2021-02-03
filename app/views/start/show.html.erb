@@ -3,13 +3,28 @@
   <h2>IV rok infromatyki IIT/PWSTE 2021</h2>
 
   <% if user_signed_in? %>
-    <h4> Zestaw pytań dla <%= @user.imie %> <%= @user.nazwisko %> wylosowany <%= @zestaw.first.created_at.strftime("%d.%m.%Y o %H:%M") %> </h4>
-    <% i=1 %>
-    <% @zestaw.each do |z| %>
-      <h5>Pytanie.<%= i %></h5>
-      <%= z.question.tekst %>
-      <% i+=1 %>
-    <% end %>
-  <% end %>
 
+
+        <h3> <b> Zestaw pytań dla <%= @user.imie %> <%= @user.nazwisko %> wylosowany <%= @zestaw.first.created_at.strftime("%d.%m.%Y o %H:%M") %></b></h3>
+
+
+        <% i=1 %>
+        <% @zestaw.each do |z| %>
+          <b>Pytanie. <%= i %></b>
+          <%= z.question.tekst %><br>
+          <% i+=1 %>
+        <% end %>
+
+        <i>
+          Wyniki egzaminu należy zapisać do zadania na platformie Teams w czasie przewidzianym dla zadania.
+          Należy zapisać pliki odpowiednich programów Pythona o nazwach wskazujących na numer pytania, którego dotyczą,
+          do rozwiązań należy dołączyc pobrany plik pdf z treścią zadań.<br>
+          W miarę możliwości proszę nie pakować rozwiązań (te pliki nie są duże).
+        </i><br>
+        <b>
+          Proszę kontrolować czas! Po zamknięciu zadania w Teams rozwiązania nie będą przyjmowane!
+        </b>
+
+
+  <% end %>
 </div>

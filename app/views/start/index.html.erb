@@ -3,20 +3,32 @@
   <h1>Egzamin z programowania w języku Python</h1>
   <h2>IV rok infromatyki IIT/PWSTE 2021</h2>
 
-
-
-
-
-
   <% if user_signed_in? %>
-    <%= link_to "Pobierz PDF", start_path(@zestaw, format: :pdf), class: "btn btn-primary" %>
-    <h4> Zestaw pytań dla <%= @user.imie %> <%= @user.nazwisko %> wylosowany <%= @zestaw.first.created_at.strftime("%d.%m.%Y o %H:%M") %> </h4>
-    <% i=1 %>
-    <% @zestaw.each do |z| %>
-      <h5>Pytanie.<%= i %></h5>
-      <%= z.question.tekst %>
-      <% i+=1 %>
-    <% end %>
-  <% end %>
+    <%= link_to "Pobierz PDF", start_path(@zestaw, format: :pdf), target: "_blank", class: "btn btn-primary" %><br>
+    <div class="card">
+      <div class="card-header">
+        <h5><b> Zestaw pytań dla <%= @user.imie %> <%= @user.nazwisko %> wylosowany <%= @zestaw.first.created_at.strftime("%d.%m.%Y o %H:%M") %></b></h5>
+      </div>
+      <div class="card-body">
+        <% i=1 %>
+        <% @zestaw.each do |z| %>
+          <font class="font-weight-bold">Pytanie.<%= i %></font>
+          <%= z.question.tekst %><br>
+          <% i+=1 %>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <p class="font-italic text-primary text-justify">
+          W pytaniu 3 nazwy plików są jednocześnie linkami do ich pobrania!<br>
+          Wyniki egzaminu należy zapisać do zadania na platformie Teams w czasie przewidzianym dla zadania.
+          Należy zapisać pliki odpowiednich programów Pythona o nazwach wskazujących na numer pytania, którego dotyczą,
+          do rozwiązań należy dołączyc pobrany plik pdf z treścią zadań. W miarę możliwości proszę nie pakować rozwiązań (te pliki nie są duże).
+        <p>
 
+        <h6><font class="text-danger font-weight-bold">
+          Proszę kontrolować czas! Po zamknięciu zadania w Teams rozwiązania nie będą przyjmowane!
+        </font></h6>
+      </div>
+    </div>
+  <% end %>
 </div>
